@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  margin-top: 7em;
+}
+
+#food-search {
+  margin-top: 5em;
+}
+
+.text-right
+{
+    text-align: right !important;
+}
+
+.text-center
+{
+    text-align: center !important;
+}
+
+.text-left
+{
+    text-align: left !important;
+}
+
+input[type=text] {
+    width: 30%;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
