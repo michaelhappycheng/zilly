@@ -8,10 +8,6 @@ body {
   margin-top: 7em;
 }
 
-#food-search {
-  margin-top: 5em;
-}
-
 .text-right
 {
     text-align: right !important;
@@ -28,8 +24,34 @@ body {
 }
 
 input[type=text] {
-    width: 30%;
-    height: 20px;
-    margin-top: 20px;
+    width: 50%;
+    height: 30px;
     margin-bottom: 20px;
 }
+
+.jumbotron{
+    background-color: rgb(6, 7, 8);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    text-align:center;
+    height:200px;
+    vertical-align: middle;
+    line-height: 200px;
+
+}
+
+div.container {
+    margin: 15px;   
+}
+div.left, div.right {
+    float: left;
+    padding: 10px;    
+}
+div.left {
+} 
+div.right {
+    padding-top:85px;
+    padding-left: 100px;
+}
+

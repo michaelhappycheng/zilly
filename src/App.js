@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import StationSearch from "./StationSearch";
 import SelectedStations from "./SelectedStations"
 
-import {Table} from 'react-bootstrap'
+
+import "./index.css"
 
 class App extends Component {
   constructor(props) {
@@ -32,14 +33,21 @@ class App extends Component {
 
     return (
       <div>
-        <div>
-          <SelectedStations
-            detailStation = {exploreStation}
-          />
+        <div className="jumbotron">
+          <h1>Zilly Cal Train Schedule</h1>
+        </div>
+        <div className="container">
           
+          <div class="left"> 
           <StationSearch
             onStationClick={this.addStation} 
           />
+          </div>
+          <div class="right">
+          <SelectedStations
+            detailStation = {exploreStation}
+          /> 
+          </div>
         </div>
       </div>
     );

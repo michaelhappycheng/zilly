@@ -29,7 +29,7 @@ class SelectedStations extends React.Component {
     }
 
     // check if we need to update 
-    if (props.detailStation.station !== undefined && this.props != props) {
+    if (props.detailStation.station !== undefined && this.props !== props) {
       this.state.stationName = props.detailStation.station[0].name
       
       // note the weird return JSON format ["0"], that allow station detail access

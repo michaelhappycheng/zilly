@@ -1,7 +1,6 @@
 import axios from "axios"
 
 function search(query, cb) {
-  console.log("searching", query)
   return axios
     .get(`http://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=${query}&key=MW9S-E7SL-26DU-VV8V&json=y`)
     .then(response => {

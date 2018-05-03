@@ -63,15 +63,19 @@ class StationSearch extends React.Component {
     const { stations } = this.state;
     const stationRows = stations.map((station, idx) => (
       <tr key={idx} onClick={() => this.props.onStationClick(station)}>
-        <td class="text-left">{station.name}</td>
-        <td class="text-left">{station.abbr}</td>
-        <td class="text-left">{station.city}</td>
-        <td class="text-left">{station.zipcode}</td>
+        <td className="text-left">{station.name}</td>
+        <td className="text-left">{station.abbr}</td>
+        <td className="text-left">{station.city}</td>
+        <td className="text-left">{station.zipcode}</td>
       </tr>
     ));
     
     return (
       <div>
+        <div classNmae="input-prompt">
+          Search with abbreviation: 
+        </div>
+
         <input
           class="input"
           type="text"
@@ -79,6 +83,7 @@ class StationSearch extends React.Component {
           value={this.state.searchValue}
           onChange={this.handleSearchChange}
         />
+
         <Table responsive bordered condensed hover>
           <thead>
             <tr>
