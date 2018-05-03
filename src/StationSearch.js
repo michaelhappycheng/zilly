@@ -1,16 +1,13 @@
 import axios from "axios"
-import React from "react";
 import Client from "./Client";
-import "./index.css"
-// import { Grid, Row, Col } from 'react-bootstrap';
+import React from "react";
 import {Table, tr, td, th, thead, tbody} from 'react-bootstrap'
-const MATCHING_ITEM_LIMIT = 10;
 
+import "./index.css"
 
 class StationSearch extends React.Component {
   state = {
     stations: [],
-    showRemoveIcon: false,
     searchValue: "",
     allStations: [],
   };
@@ -18,7 +15,6 @@ class StationSearch extends React.Component {
     axios
     .get(`http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y`)
     .then(response => {
-      console.log('getting all stations statiosn', response.data.root.stations.station)
       this.setState({
         stations : response.data.root.stations.station,
         allStations : response.data.root.stations.station
@@ -39,23 +35,18 @@ class StationSearch extends React.Component {
     if (value === "") {
       this.setState({
         stations: this.state.stations,
-        showRemoveIcon: false
       });
 
     } else {
       this.setState({
-        showRemoveIcon: true,
         stations: this.state.allStations
       });
 
-
-
+      // calling client axios call and set state
       Client.search(value, stations => {
-        console.log("Client.search back from Client", stations)
         this.setState({
           stations: [stations]
         });
-        
       });
     }
   };
@@ -63,16 +54,13 @@ class StationSearch extends React.Component {
   handleSearchCancel = () => {
     this.setState({
       stations: [],
-      showRemoveIcon: false,
       searchValue: ""
     });
   };
   
   render() {
     // console.log("in StationSearch, stations is", this.props.from_app_stations)
-    const { showRemoveIcon, stations } = this.state;
-    const removeIconStyle = showRemoveIcon ? {} : { visibility: "hidden" };
-    console.log("constant update when state is changing in stateion Search")
+    const { stations } = this.state;
     const stationRows = stations.map((station, idx) => (
       <tr key={idx} onClick={() => this.props.onStationClick(station)}>
         <td class="text-left">{station.name}</td>
