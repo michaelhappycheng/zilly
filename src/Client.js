@@ -2,7 +2,7 @@ import axios from "axios"
 
 function search(query, cb) {
   return axios
-    .get(`http://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=${query}&key=MW9S-E7SL-26DU-VV8V&json=y`)
+    .get(`https://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=${query}&key=MW9S-E7SL-26DU-VV8V&json=y`)
     .then(response => {
       console.log('getting statiosn', response.data.root.stations.station)
       return response.data.root.stations.station;

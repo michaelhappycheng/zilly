@@ -18,7 +18,7 @@ class App extends Component {
   addStation = station => {
     const newStations = this.state.selectedStations.concat(station);
     axios
-    .get(`http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${station.abbr}&key=MW9S-E7SL-26DU-VV8V&json=y`)
+    .get(`https://api.bart.gov/api/etd.aspx?cmd=etd&orig=${station.abbr}&key=MW9S-E7SL-26DU-VV8V&json=y`)
     .then(response => {
       this.setState({
         exploreStation: response.data.root 
